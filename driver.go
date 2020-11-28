@@ -7,7 +7,7 @@ import (
 
 const (
 	// DriverName is name of the driver this package provides
-	DriverName = "awsddb"
+	DriverName = "awsdynamodb"
 )
 
 type ddbDriver struct{}
