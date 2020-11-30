@@ -26,5 +26,9 @@ func (d *ddbDriver) Open(dsn string) (driver.Conn, error) {
 }
 
 func (d *ddbDriver) OpenConnector(dsn string) (driver.Connector, error) {
-	return &ddbConnector{}, nil
+	cfg, err := ParseDSN(dsn)
+	if err != nil {
+		return nil, err
+	}
+	return &ddbConnector{cfg: cfg}, nil
 }

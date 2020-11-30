@@ -1,8 +1,16 @@
 package ddbdriver
 
-import "database/sql/driver"
+import (
+	"database/sql/driver"
 
-type ddbResult struct{}
+	"github.com/aws/aws-sdk-go/service/dynamodb"
+)
+
+type item = map[string]*dynamodb.AttributeValue
+
+type ddbResult struct {
+	items []item
+}
 
 var _ driver.Result = &ddbResult{}
 
